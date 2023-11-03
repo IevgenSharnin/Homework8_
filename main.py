@@ -1,5 +1,9 @@
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
+#today = (datetime(2021, 12, 27)).date()
+today = date.today()
+if today.weekday() == 0: # Коригуємо поточну дату, щоб забрати суботу-неділю,
+    today = today - datetime.timestamp (days = 2) # якщо сьогодні понеділок
 
 def get_birthdays_per_week(users):
     # Реалізуйте тут домашнє завдання
@@ -8,8 +12,9 @@ def get_birthdays_per_week(users):
     weekdays_indexes = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday',
                         3: 'Thursday', 4: 'Friday'}
     today = date.today()
+#    today = (datetime(2021, 12, 27)).date()
     if today.weekday() == 0: # Коригуємо поточну дату, щоб забрати суботу-неділю,
-        today = today - datetime.timestamp (days = 2) # якщо сьогодні понеділок
+        today = today - timedelta (days = 2) # якщо сьогодні понеділок
 
     # Перевірка на пустий список, що прийшов як аргумент 
     if users == []:
@@ -31,7 +36,10 @@ def get_birthdays_per_week(users):
 
 if __name__ == "__main__":
     users = [
-        {"name": "Jan Koum", "birthday": datetime(2023, 11, 3).date()},
+            {
+                "name": "Alice",
+                "birthday": (datetime(2021, 11, 3)).date(),
+            },
     ]
 
     result = get_birthdays_per_week(users)
