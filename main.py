@@ -3,7 +3,12 @@ from datetime import date, datetime
 
 def get_birthdays_per_week(users):
     # Реалізуйте тут домашнє завдання
-    return users
+    users_dict = {'Monday': [], 'Tuesday': [], 'Wednesday': [], 
+                  'Thursday': [], 'Friday': []}
+    if users == []:
+        return users_dict
+    
+    return users_dict
 
 
 if __name__ == "__main__":
